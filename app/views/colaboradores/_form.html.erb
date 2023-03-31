@@ -1,0 +1,93 @@
+<div data-controller="carmex">
+  
+</div>
+<div class="row">
+  <div class="col text-end">
+    <%= link_to "Cancelar", colaboradores_path, class: "btn btn-secondary" %>
+  </div>
+  <div class="col text-center">
+    <%= form_with(model: colaborador) do |form| %>
+      <!-- <% if colaborador.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(colaborador.errors.count, "error") %> prohibited this colaborador from being saved:</h2>
+
+          <ul>
+            <% colaborador.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %> -->
+
+      <div class="mb-3">
+        <%= form.text_field :nome, class: "form-control", placeholder: "Insira seu nome aqui" %>
+        <%= errors_for(form, :nome) %>
+      </div>
+
+      <div class="mb-3">
+        <!-- <%= form.select :genero, :collection => Colaborador.generos.keys.to_a %> -->
+        <%= form.select :genero, options_for_select(Colaborador.generos.keys.map { |k, v| [k.humanize.capitalize, k]}), {:prompt => "Selecione seu gênero"}, {class: "form-select"} %>
+        <%= errors_for(form, :genero) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :data_de_nascimento, style: "display: block" %>
+        <%= form.date_field :data_de_nascimento, class: "form-control" %>
+        <%= errors_for(form, :data_de_nascimento) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.select :etnia, options_for_select(Colaborador.etnia.keys.map { |k, v| [k.humanize.capitalize, k]}), {:prompt => "Selecione sua etnia"}, {class: "form-select"} %>
+        <%= errors_for(form, :etnia) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :rg, style: "display: block" %>
+        <!-- <%= form.text_field :rg, class: "form-control", placeholder: "__.___.___-_", minlength: 12, maxlength: 12, onkeypress: "$(this).mask('00.000.000-0')" %> -->
+        <%= form.text_field :rg, class: "form-control", placeholder: "__.___.___-_", minlength: 12, maxlength: 12, data: { masks_target: 'rg' } %>
+        <%= errors_for(form, :rg) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :cpf, style: "display: block" %>
+        <!-- <%= form.text_field :cpf, class: "form-control", placeholder: "___.___.___-__", minlength: 13, maxlength: 15, onkeypress: "$(this).mask('000.000.000-AA')", required: true %> -->
+        <%= form.text_field :cpf, class: "form-control", placeholder: "___.___.___-__", minlength: 13, maxlength: 15, data: { masks_target: 'cpf' } %>
+        <%= errors_for(form, :cpf) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :PIS, style: "display: block" %>
+        <!-- <%= form.text_field :PIS, class: "form-control", placeholder: "___._____.__-_", minlenght: 14, maxlength: 14, onkeypress: "$(this).mask('00.00000.00-A')", required: true %> -->
+        <%= form.text_field :PIS, class: "form-control", placeholder: "___._____.__-_", minlenght: 14, maxlength: 14, data: { masks_target: 'PIS' } %>
+        <%= errors_for(form, :PIS) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.select :carga_horaria, options_for_select([["8 horas", "oito"], ["6 horas", "seis"], ["4 horas", "quatro"]]), {:prompt => "Selecione sua carga horária"}, {class: "form-select"} %>
+        <%= errors_for(form, :carga_horaria) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit "Registrar", class: "btn btn-secondary" %>
+      </div>
+    </div>
+    <div class="col pt-3">
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :deficiencia, class: "form-check-input" %>
+        <%= form.label "Possui deficiência", class: "form-check-label" %>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :outra_agencia, class: "form-check-input" %>
+        <%= form.label "Temporariamente em outra agência", class: "form-check-label" %>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :afastado, class: "form-check-input" %>
+        <%= form.label "Afastado", class: "form-check-label" %>
+      </div>
+
+    </div>
+    <% end %>
+</div>

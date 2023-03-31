@@ -1,0 +1,69 @@
+<div id="<%= dom_id colaborador %>" class="card border-dark">
+  <div class="card-body pt-3">
+    <p>
+      <strong>Nome:</strong>
+      <%= colaborador.nome %>
+    </p>
+
+    <p>
+      <strong>Gênero:</strong>
+      <%= colaborador.genero ? colaborador.genero.capitalize : "Não registrado" %>
+    </p>
+
+    <p>
+      <strong>Data de nascimento:</strong>
+      <%= colaborador.data_de_nascimento.strftime('%d/%m/%Y') %>
+    </p>
+
+    <p>
+      <strong>Etnia:</strong>
+      <%= colaborador.etnia ? colaborador.etnia.capitalize : "Não registrado" %>
+    </p>
+
+    <p>
+      <strong>Possui deficiência:</strong>
+      <%= colaborador.deficiencia ? "Sim" : "Não" %>
+    </p>
+
+    <p>
+      <strong>Rg:</strong>
+      <%= colaborador.rg == "" ? "Não registrado" : colaborador.rg %>
+    </p>
+
+    <p>
+      <strong>Cpf:</strong>
+      <%= colaborador.cpf == "" ? "Não registrado" : CPF.new(colaborador.cpf).formatted %>
+    </p>
+
+    <p>
+      <strong>Pis:</strong>
+      <%= colaborador.PIS == "" ? "Não registrado" : colaborador.PIS %>
+    </p>
+
+    <p>
+      <strong>Transferido:</strong>
+      <%= colaborador.outra_agencia ? "Sim" : "Não" %>
+    </p>
+
+    <p>
+      <strong>Está afastado:</strong>
+      <%= colaborador.afastado ? "Sim" : "Não" %>
+    </p>
+
+    <p>
+      <strong>Carga horária:</strong>
+      <%=
+        case colaborador.carga_horaria
+        when "oito" 
+          "8 horas"
+        when "seis"
+          "6 horas"
+        when "quatro"
+          "4 horas"
+        when nil
+          "Não registrada"
+        end
+      %>
+    </p>
+  </div>
+</div>

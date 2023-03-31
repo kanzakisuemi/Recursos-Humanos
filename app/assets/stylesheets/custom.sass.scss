@@ -1,0 +1,26 @@
+/*Required*/
+@import "../node_modules/bootstrap/scss/functions";
+
+/*COLORS*/
+$rosa: #f7c9ed;
+$azul: #c9d6f7;
+
+/*Variable overrides*/
+$primary: $rosa;
+$secondary: $azul;
+$dropdown-link-hover-bg: $rosa;
+$list-group-hover-bg: $rosa;
+/*$navbar-light-active-color: ;*/
+
+
+/*Required*/
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+/*Optional Bootstrap components here*/
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+/*etc*/
+

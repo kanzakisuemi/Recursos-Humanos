@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  sexo: 1
+  data_de_nascimento: 2023-03-20
+  etnia: 1
+  deficiencia: false
+  rg: MyString
+  cpf: MyString
+  PIS: MyString
+  outra_agencia: false
+  afastado: false
+  carga_horaria: 1
+
+two:
+  nome: MyString
+  sexo: 1
+  data_de_nascimento: 2023-03-20
+  etnia: 1
+  deficiencia: false
+  rg: MyString
+  cpf: MyString
+  PIS: MyString
+  outra_agencia: false
+  afastado: false
+  carga_horaria: 1

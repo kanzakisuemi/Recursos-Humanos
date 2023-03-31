@@ -1,0 +1,22 @@
+
+::selection {
+    background-color: $rosa;
+}
+
+body {
+  background: $azulbg;
+}
+
+.field_with_errors .form-control{
+  border-color: $rosachock;
+}
+
+.field_with_errors .form-select{
+  border-color: $rosachock;
+}
+
+
+.invalid-feedback {
+  display: block;
+  color: $rosachock;
+}

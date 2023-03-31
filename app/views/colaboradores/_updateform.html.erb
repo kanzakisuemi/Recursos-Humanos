@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col text-end">
+    <%= link_to "Voltar", @colaborador, class: "btn btn-secondary" %>
+  </div>
+  <div class="col text-center">
+    <%= form_with(model: colaborador) do |form| %>
+      <% if colaborador.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(colaborador.errors.count, "error") %> prohibited this colaborador from being saved:</h2>
+
+          <ul>
+            <% colaborador.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.text_field :nome, class: "form-control", placeholder: "Insira seu nome aqui" %>
+      </div>
+
+      <div class="mb-3">
+        <!-- <%= form.select :genero, options_for_select(Colaborador.generos.keys.map { |k, v| [k.humanize.capitalize, k]}), {:prompt => "Selecione seu gênero"}, {class: "form-select"} %> -->
+        <%= form.select(:genero, options_for_select(Colaborador.generos.keys.map { |k, v| [k.humanize.capitalize, k]}, :selected => form.object.genero), {}, {class: "form-select"}) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :data_de_nascimento, style: "display: block" %>
+        <%= form.date_field :data_de_nascimento, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <!-- <%= form.select :etnia, options_for_select(Colaborador.etnia.keys.map { |k, v| [k.humanize.capitalize, k]}), {:prompt => "Selecione sua etnia"}, {class: "form-select"} %> -->
+        <%= form.select(:etnia, options_for_select(Colaborador.etnia.keys.map { |k, v| [k.humanize.capitalize, k]}, :selected => form.object.etnia), {}, {class: "form-select"}) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :rg, style: "display: block" %>
+        <%= form.text_field :rg, class: "form-control", placeholder: "__.___.___-_", minlength: 12, maxlength: 12, onkeypress: "$(this).mask('00.000.000-0')", value: @colaborador.rg %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :cpf, style: "display: block" %>
+        <%= form.text_field :cpf, class: "form-control", placeholder: "___.___.___-__", minlength: 15, maxlength: 15, onkeypress: "$(this).mask('000.000.000-AA')", value: @colaborador.cpf = CPF.new(@colaborador.cpf).formatted %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :PIS, style: "display: block" %>
+        <%= form.text_field :PIS, class: "form-control", placeholder: "___._____.__-_", minlenght: 14, maxlength: 14, onkeypress: "$(this).mask('00.00000.00-A')", value: @colaborador.PIS %>
+      </div>
+
+      <div class="mb-3">
+        <!-- <%= form.select :carga_horaria, options_for_select(Colaborador.carga_horaria.keys.map { |k, v| [k.humanize.capitalize, k]}), {:prompt => "Selecione sua carga horária"}, {class: "form-select"} %> -->
+        <%= form.select(:carga_horaria, options_for_select([["8 horas", "oito"], ["6 horas", "seis"], ["4 horas", "quatro"]], :selected => form.object.carga_horaria), {}, {class: "form-select"}) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit "Enviar", class: "btn btn-secondary" %>
+      </div>
+    </div>
+    <div class="col pt-3">
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :deficiencia, class: "form-check-input" %>
+        <%= form.label "Possui deficiência", class: "form-check-label" %>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :outra_agencia, class: "form-check-input" %>
+        <%= form.label "Temporariamente em outra agência", class: "form-check-label" %>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <%= form.check_box :afastado, class: "form-check-input" %>
+        <%= form.label "Afastado", class: "form-check-label" %>
+      </div>
+
+    </div>
+    <% end %>
+</div>
+
+<%= debug(@colaborador.cpf = CPF.new(@colaborador.cpf).formatted) %>

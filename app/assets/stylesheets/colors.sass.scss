@@ -1,0 +1,19 @@
+/*MINHAS CORES*/
+$azulbg: #e1e8f9;
+$rosabb: #eeaeca;
+$azulbb: #94bbe9;
+$roxobbAzulado: #b0b7df;
+$lilas: #bcb5db;
+$rosachock: #fc3a74;
+
+/*MINHAS LISTAS*/
+$lista: $rosabb, $azulbb;
+$outraLista: $lilas, $azulbb;
+
+/*GRADIENTE*/
+@mixin gradient($direction, $list) { 
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);  
+}
