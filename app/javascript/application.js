@@ -6,3 +6,4 @@ import "./functions"
 import dateFormat, { masks } from "dateformat"
 
 console.log('hello')
+console.log('%cpoppi', 'color: pink;')
