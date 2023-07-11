@@ -78,10 +78,4 @@ class ColaboradoresController < ApplicationController
       params.require(:colaborador).permit(:nome, :genero, :data_de_nascimento, :etnia, :deficiencia, :rg, :cpf, :PIS, :outra_agencia, :afastado, :carga_horaria)
     end
 
-    def desformatando
-      params[:colaborador][:rg] = CPF.new(params[:colaborador][:rg]).stripped
-      params[:colaborador][:cpf] = CPF.new(params[:colaborador][:cpf]).stripped
-      params[:colaborador][:PIS] = CPF.new(params[:colaborador][:PIS]).stripped
-    end
-
 end
