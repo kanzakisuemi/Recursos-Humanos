@@ -3,6 +3,7 @@
 
 /*COLORS*/
 $rosa: #f7c9ed;
+$darkerRosa: #ffb1ee;
 $azul: #c9d6f7;
 
 /*Variable overrides*/
@@ -10,7 +11,10 @@ $primary: $rosa;
 $secondary: $azul;
 $dropdown-link-hover-bg: $rosa;
 $list-group-hover-bg: $rosa;
-/*$navbar-light-active-color: ;*/
+$list-group-action-active-bg: $darkerRosa;
+$dropdown-link-active-bg: $darkerRosa;
+$dropdown-link-active-color: black;
+$list-group-action-hover-color: black;
 
 
 /*Required*/
