@@ -1,20 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<%= image_tag "paper-sheet.png", size: "100", class: "rounded mx-auto d-block" %>
+<%= image_tag "paper-sheet.png", size: "100", class: "rounded mx-auto d-block mb-2" %>
 
-<div class="row pt-3">
-  <div class="col text-end pt-3">
-    <%= link_to "Voltar", colaboradores_path, class: "btn btn-secondary" %>
-  </div>
-
-  <div class="col">
+<div class="card border-dark mx-auto" style="max-width: 30rem; background-color: white;">
+  <div class="card-body">  
     <%= render @colaborador %>
-  </div>
 
-  <div class="col pt-3">
-    <%= link_to "Editar", edit_colaborador_path(@colaborador), class: "btn btn-secondary" %>
-    <div class="pt-3">
-      <%= button_to "Deletar", @colaborador, method: :delete, class: "btn btn-secondary" %>
+    <hr class="divider" />
+
+    <div class="d-flex justify-content-center">
+      <%= link_to "Voltar", colaboradores_path, class: "btn btn-secondary d-inline mx-2" %>
+      <%= link_to "Editar", edit_colaborador_path(@colaborador), class: "btn btn-secondary d-inline mx-2" %>
+      <%= button_to "Deletar", @colaborador, method: :delete, class: "btn btn-secondary d-inline mx-2" %>
     </div>
   </div>
 </div>
+

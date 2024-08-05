@@ -1,0 +1,9 @@
+<div style="color: red">
+  <h2><%= pluralize(colaborador.errors.count, "error") %> prohibited this colaborador from being saved:</h2>
+
+  <ul>
+    <% colaborador.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>

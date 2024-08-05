@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "colaboradores#homepage"
+  root "application#homepage"
   resources :colaboradores
 
-  get "/homepage", to: "colaboradores#homepage", as: :homepage 
+  get "/homepage", to: "application#homepage", as: :homepage 
 
 end

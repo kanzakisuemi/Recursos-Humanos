@@ -1,57 +1,69 @@
-<div id="<%= dom_id colaborador %>" class="card border-dark">
-  <div class="card-body pt-3">
-    <p>
-      <strong>Nome:</strong>
-      <%= colaborador.nome %>
-    </p>
+<div id="<%= dom_id colaborador %>">
+  <div class="d-flex justify-content-between">
+    <span class="bold">Nome:</span>
+    <span > <%= colaborador.nome %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Gênero:</strong>
-      <%= colaborador.genero ? colaborador.genero.capitalize : "Não registrado" %>
-    </p>
+  <div class="d-flex justify-content-between">
+    <span class="bold">Gênero:</span>
+    <span> <%= colaborador.genero ? colaborador.genero.capitalize : "--" %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Data de nascimento:</strong>
-      <%= colaborador.data_de_nascimento.strftime('%d/%m/%Y') %>
-    </p>
+  <div class="d-flex justify-content-between">
+    <span class="bold">Data de nascimento:</span>
+    <span> <%= colaborador.data_de_nascimento.strftime('%d/%m/%Y') %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Etnia:</strong>
-      <%= colaborador.etnia ? colaborador.etnia.capitalize : "Não registrado" %>
-    </p>
+  <div class="d-flex justify-content-between">
+    <span class="bold">Etnia:</span>
+    <span> <%= colaborador.etnia ? colaborador.etnia.capitalize : "--" %> </span>
+  </div>
+  <hr class="divider"/>  
 
-    <p>
-      <strong>Possui deficiência:</strong>
-      <%= colaborador.deficiencia ? "Sim" : "Não" %>
-    </p>
+  <div class="d-flex justify-content-between">  
+    <span class="bold">Possui deficiência:</span>
+    <span> <%= colaborador.deficiencia ? "Sim" : "Não" %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Rg:</strong>
-      <%= colaborador.rg == "" ? "Não registrado" : colaborador.rg %>
-    </p>
+  <div class="d-flex justify-content-between">  
+    <span class="bold">Rg:</span>
+    <span data-controller="rg"> <%= colaborador.rg == "" ? "--" : colaborador.rg %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Cpf:</strong>
-      <%= colaborador.cpf == "" ? "Não registrado" : CPF.new(colaborador.cpf).formatted %>
-    </p>
+  
+  <div class="d-flex justify-content-between">  
+    <span class="bold">Cpf:</span>
+    <span data-controller="cpf"> <%= colaborador.cpf == "" ? "--" : colaborador.cpf %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Pis:</strong>
-      <%= colaborador.PIS == "" ? "Não registrado" : colaborador.PIS %>
-    </p>
+  
+  <div class="d-flex justify-content-between">  
+    <span class="bold">Pis:</span>
+    <span data-controller="pis"> <%= colaborador.PIS == "" ? "--" : colaborador.PIS %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Transferido:</strong>
-      <%= colaborador.outra_agencia ? "Sim" : "Não" %>
-    </p>
+  <div class="d-flex justify-content-between">
+    <span class="bold">Transferido:</span>
+    <span> <%= colaborador.outra_agencia ? "Sim" : "Não" %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Está afastado:</strong>
-      <%= colaborador.afastado ? "Sim" : "Não" %>
-    </p>
+  <div class="d-flex justify-content-between">  
+    <span class="bold">Está afastado:</span>
+    <span> <%= colaborador.afastado ? "Sim" : "Não" %> </span>
+  </div>
+  <hr class="divider"/>
 
-    <p>
-      <strong>Carga horária:</strong>
+  <div class="d-flex justify-content-between">
+    <span class="bold">Carga horária:</span>
+    <span>
       <%=
         case colaborador.carga_horaria
         when "oito" 
@@ -64,6 +76,6 @@
           "Não registrada"
         end
       %>
-    </p>
+    </span>
   </div>
 </div>

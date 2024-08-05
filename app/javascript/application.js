@@ -2,8 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
-import "./functions"
 import dateFormat, { masks } from "dateformat"
 
-console.log('hello')
-console.log('%cpoppi', 'color: pink;')
+console.log('%cconsole.log', 'color: pink;')

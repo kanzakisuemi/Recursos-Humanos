@@ -2,10 +2,6 @@ class ColaboradoresController < ApplicationController
   before_action :set_colaborador, only: %i[ show edit update destroy ]
   before_action :desformatando, only: %i[ create update ]
 
-  # GET /homepage
-  def homepage
-  end
-
   # GET /colaboradores or /colaboradores.json
   def index
     @colaboradores = Colaborador.all
@@ -50,7 +46,6 @@ class ColaboradoresController < ApplicationController
       #   format.json { render json: @colaborador.errors, status: :unprocessable_entity }
       # end
       else
-        binding.pry
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -75,7 +70,7 @@ class ColaboradoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def colaborador_params
-      params.require(:colaborador).permit(:nome, :genero, :data_de_nascimento, :etnia, :deficiencia, :rg, :cpf, :PIS, :outra_agencia, :afastado, :carga_horaria)
+      params.require(:colaborador).permit(:nome, :genero, :data_de_nascimento, :etnia, :deficiencia, :rg, :cpf, :PIS, :outra_agencia, :afastado, :carga_horaria, :motivo_afastamento)
     end
 
 end
