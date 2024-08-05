@@ -1,18 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag "modal" do %>
+  <div class="dean-modal modal-md">
+    <%= link_to '', :back, class: 'btn btn-close btn-sm' %>
 
-<%= image_tag "paper-sheet.png", size: "100", class: "rounded mx-auto d-block mb-2" %>
+    <div>
+      <%= image_tag "paper-sheet.png", size: "40", class: "rounded mx-auto d-block mb-2" %>
+    </div>
 
-<div class="card border-dark mx-auto" style="max-width: 30rem; background-color: white;">
-  <div class="card-body">  
     <%= render @colaborador %>
 
     <hr class="divider" />
 
     <div class="d-flex justify-content-center">
-      <%= link_to "Voltar", colaboradores_path, class: "btn btn-secondary d-inline mx-2" %>
       <%= link_to "Editar", edit_colaborador_path(@colaborador), class: "btn btn-secondary d-inline mx-2" %>
       <%= button_to "Deletar", @colaborador, method: :delete, class: "btn btn-secondary d-inline mx-2" %>
     </div>
   </div>
-</div>
-
+<% end %>

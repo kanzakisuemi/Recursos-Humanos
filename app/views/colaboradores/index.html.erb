@@ -1,7 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <div class="text-center">
   <%= image_tag "folder.png", size: "182x109",class: "d-inline" %>
-  <!-- <h3 class="d-inline pb-3">Colaboradores</h3> -->
 </div>
 
 <div class="row">
@@ -10,12 +9,10 @@
     <div id="colaboradores">
       <div class="list-group">
         <% @colaboradores.each do |colaborador| %>
-          <%= link_to "#{colaborador.nome}", colaborador, class: "list-group-item list-group-item-action border-dark" %>
+          <%= link_to "#{colaborador.nome}", colaborador, class: "list-group-item list-group-item-action border-dark", data: { turbo_frame: "modal" } %>
         <% end %>
       </div>
     </div>
   </div>
   <div class="col"></div>
 </div>
-
-<!-- <%= link_to "Novo colaborador", new_colaborador_path %> -->

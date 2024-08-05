@@ -5,3 +5,9 @@ import * as bootstrap from "bootstrap"
 import dateFormat, { masks } from "dateformat"
 
 console.log('%cconsole.log', 'color: pink;')
+
+document.addEventListener("turbo:frame-missing", (event) => {
+  const { detail: { response, visit } } = event
+  event.preventDefault()
+  visit(response)
+})

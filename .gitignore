@@ -37,3 +37,7 @@
 /bundle
 
 /.vscode
+/app/stylesheets/commented
+
+.DS_Store
+/.DS_Store
