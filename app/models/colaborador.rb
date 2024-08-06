@@ -1,5 +1,5 @@
 class Colaborador < ApplicationRecord
-  validates :nome, :genero, :data_de_nascimento, :etnia, :deficiencia, :rg, :cpf, :PIS, :outra_agencia, :afastado, :carga_horaria, presence: true
+  validates :nome, :genero, :data_de_nascimento, :etnia, :carga_horaria, presence: true
 
   enum etnia: [ :branco, :amarelo, :pardo, :preto, :indígena ]
   enum genero: [ :feminino, :masculino, :outro ]

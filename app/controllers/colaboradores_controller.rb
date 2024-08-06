@@ -25,7 +25,7 @@ class ColaboradoresController < ApplicationController
 
     respond_to do |format|
       if @colaborador.save
-        format.html { redirect_to colaborador_url(@colaborador), notice: "Colaborador resgistrado com sucesso." }
+        format.html { redirect_to colaboradores_url, notice: "Colaborador resgistrado com sucesso." }
         format.json { render :show, status: :created, location: @colaborador }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,13 +40,9 @@ class ColaboradoresController < ApplicationController
       if @colaborador.update(colaborador_params)
         format.html { redirect_to colaborador_url(@colaborador), notice: "Colaborador editado com sucesso." }
         format.json { render :show, status: :ok, location: @colaborador }
-      # else
-      #   format.html { render :edit, status: :unprocessable_entity }
-      #   format.json { render json: @colaborador.errors, status: :unprocessable_entity }
-      # end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @colaborador.errors, status: :unprocessable_entity }
       end
     end
   end
