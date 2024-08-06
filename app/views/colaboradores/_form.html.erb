@@ -1,11 +1,10 @@
 <div class="card border-dark mb-5 mx-auto" style="background-color: white;">
   <div class="card-body">
     <%= form_with(model: colaborador) do |form| %>
-      <%= error_saving_colaborador(colaborador) %>
       <div class="mb-3 form-floating">
         <%= form.text_field :nome, class: "form-control", placeholder: "--" %>
         <%= form.label :nome %>
-        <!-- <%= errors_for(form, :nome) %> -->
+        <%= errors_for(form, :nome) %>
       </div>
 
       <div class="mb-3 form-floating">

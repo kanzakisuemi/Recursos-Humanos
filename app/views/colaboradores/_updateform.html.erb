@@ -3,8 +3,16 @@
     <%= form.text_field :nome, class: "form-control", placeholder: "Insira seu nome aqui" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.select(:genero, options_for_select(genero_options, :selected => form.object.genero), {}, {class: "form-select"}) %>
+  <div class="mb-3" x-data="{ genero: '', showOtherField: '<%= form.object.genero %>' === 'outro', updateVisibility() { this.showOtherField = this.genero === 'outro'; } }">
+    <%= form.select :genero, options_for_select(genero_options, form.object.genero), {}, {
+      class: "form-select",
+      "x-model": "genero",
+      "x-on:change": "updateVisibility()"
+    } %>
+
+    <div x-show="showOtherField", class="mt-2">
+      <%= form.text_field :genero_especifico, class: "form-control", placeholder: "Informe seu gênero" %>
+    </div>
   </div>
 
   <div class="mb-3">
