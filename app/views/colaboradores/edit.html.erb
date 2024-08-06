@@ -1,3 +1,8 @@
-<%= image_tag "blue-pen.png", size: "80",class: "rounded mx-auto d-block mb-4" %>
+<%= turbo_frame_tag "modal" do %>
+  <div class="dean-modal modal-md">
+    <%= link_to '', :back, class: 'btn btn-close btn-sm' %>
+    <%= image_tag "blue-pen.png", size: "40",class: "rounded mx-auto d-block mb-4" %>
 
-<%= render "updateform", colaborador: @colaborador %>
+    <%= render "updateform", colaborador: @colaborador %>
+  </div>
+<% end %>

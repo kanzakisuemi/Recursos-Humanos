@@ -1,64 +1,60 @@
-<div class="card mx-auto">
-  <div class="card-body">
-    <%= form_with(model: colaborador) do |form| %>
-      <div class="mb-3">
-        <%= form.text_field :nome, class: "form-control", placeholder: "Insira seu nome aqui" %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.select(:genero, options_for_select(Colaborador.generos.keys.map { |k, v| [k.humanize.capitalize, k]}, :selected => form.object.genero), {}, {class: "form-select"}) %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :data_de_nascimento, style: "display: block" %>
-        <%= form.date_field :data_de_nascimento, class: "form-control" %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.select(:etnia, options_for_select(Colaborador.etnia.keys.map { |k, v| [k.humanize.capitalize, k]}, :selected => form.object.etnia), {}, {class: "form-select"}) %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :rg, style: "display: block" %>
-        <%= form.text_field :rg, class: "form-control", placeholder: "__.___.___-_", minlength: 12, maxlength: 12, value: @colaborador.rg, "data-controller": "rg" %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :cpf, style: "display: block" %>
-        <%= form.text_field :cpf, class: "form-control", placeholder: "___.___.___-__", minlength: 15, maxlength: 15, value: @colaborador.cpf, "data-controller": "cpf" %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :PIS, style: "display: block" %>
-        <%= form.text_field :PIS, class: "form-control", placeholder: "___._____.__-_", minlenght: 14, maxlength: 14, value: @colaborador.PIS, "data-controller": "pis" %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.select(:carga_horaria, options_for_select([["8 horas", "oito"], ["6 horas", "seis"], ["4 horas", "quatro"]], :selected => form.object.carga_horaria), {}, {class: "form-select"}) %>
-      </div>
-
-      <div class="form-check form-switch mb-3">
-        <%= form.check_box :deficiencia, class: "form-check-input" %>
-        <%= form.label "Possui deficiência", class: "form-check-label" %>
-      </div>
-
-      <div class="form-check form-switch mb-3">
-        <%= form.check_box :outra_agencia, class: "form-check-input" %>
-        <%= form.label "Temporariamente em outra agência", class: "form-check-label" %>
-      </div>
-
-      <div class="form-check form-switch mb-3">
-        <%= form.check_box :afastado, class: "form-check-input" %>
-        <%= form.label "Afastado", class: "form-check-label" %>
-      </div>
-
-      <hr class="divider" />
-
-      <%= link_to "Voltar", @colaborador, class: "btn btn-secondary d-inline" %>
-
-      <div class="mb-3 d-inline">
-        <%= form.submit "Enviar", class: "btn btn-secondary" %>
-      </div>
-    <% end %>
+<%= form_with(model: colaborador) do |form| %>
+  <div class="mb-3">
+    <%= form.text_field :nome, class: "form-control", placeholder: "Insira seu nome aqui" %>
   </div>
-</div>
+
+  <div class="mb-3">
+    <%= form.select(:genero, options_for_select(genero_options, :selected => form.object.genero), {}, {class: "form-select"}) %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :data_de_nascimento, class: "d-block" %>
+    <%= form.date_field :data_de_nascimento, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.select(:etnia, options_for_select(etnia_options, :selected => form.object.etnia), {}, {class: "form-select"}) %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :rg, class: "d-block" %>
+    <%= form.text_field :rg, class: "form-control", placeholder: "__.___.___-_", minlength: 12, maxlength: 12, value: @colaborador.rg, "data-controller": "rg" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cpf, class: "d-block" %>
+    <%= form.text_field :cpf, class: "form-control", placeholder: "___.___.___-__", minlength: 15, maxlength: 15, value: @colaborador.cpf, "data-controller": "cpf" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :PIS, class: "d-block" %>
+    <%= form.text_field :PIS, class: "form-control", placeholder: "___._____.__-_", minlenght: 14, maxlength: 14, value: @colaborador.PIS, "data-controller": "pis" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.select(:carga_horaria, options_for_select(carga_horaria_options, :selected => form.object.carga_horaria), {}, {class: "form-select"}) %>
+  </div>
+
+  <div class="form-check form-switch mb-3">
+    <%= form.check_box :deficiencia, class: "form-check-input" %>
+    <%= form.label "Possui deficiência", class: "form-check-label" %>
+  </div>
+
+  <div class="form-check form-switch mb-3">
+    <%= form.check_box :outra_agencia, class: "form-check-input" %>
+    <%= form.label "Temporariamente em outra agência", class: "form-check-label" %>
+  </div>
+
+  <div class="form-check form-switch mb-3">
+    <%= form.check_box :afastado, class: "form-check-input" %>
+    <%= form.label "Afastado", class: "form-check-label" %>
+  </div>
+
+  <hr class="divider" />
+
+  <%= link_to "Voltar", @colaborador, class: "btn btn-secondary d-inline" %>
+
+  <div class="mb-3 d-inline">
+    <%= form.submit "Enviar", class: "btn btn-secondary" %>
+  </div>
+<% end %>

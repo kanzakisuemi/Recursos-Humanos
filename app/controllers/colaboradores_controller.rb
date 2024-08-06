@@ -1,6 +1,5 @@
 class ColaboradoresController < ApplicationController
   before_action :set_colaborador, only: %i[ show edit update destroy ]
-  before_action :desformatando, only: %i[ create update ]
 
   # GET /colaboradores or /colaboradores.json
   def index
@@ -63,12 +62,10 @@ class ColaboradoresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_colaborador
       @colaborador = Colaborador.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def colaborador_params
       params.require(:colaborador).permit(:nome, :genero, :data_de_nascimento, :etnia, :deficiencia, :rg, :cpf, :PIS, :outra_agencia, :afastado, :carga_horaria, :motivo_afastamento)
     end
